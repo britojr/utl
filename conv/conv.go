@@ -6,7 +6,6 @@ import (
 	"strconv"
 
 	"github.com/britojr/kbn/utl/errchk"
-	"github.com/willf/bitset"
 )
 
 // Atoi converts string to int
@@ -57,15 +56,4 @@ func Sitof(is []int) []float64 {
 		arr[i] = float64(v)
 	}
 	return arr
-}
-
-// AtoBset converts a string in bits form to a bitset
-func AtoBset(s string) *bitset.BitSet {
-	b := bitset.New(uint(len(s)))
-	for i, v := range s {
-		if v == '1' {
-			b.Set(uint(i))
-		}
-	}
-	return b
 }
