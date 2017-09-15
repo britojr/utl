@@ -49,6 +49,14 @@ func LNormDiff(xs, ys []float64, l float64) float64 {
 	return gfloats.Distance(xs, ys, l)
 }
 
+// IntsLNormDiff calculates the l-norm of the difference of two int arrays
+func IntsLNormDiff(xs, ys []int, l int) (d float64) {
+	for i := range xs {
+		d += math.Pow(float64(xs[i]-ys[i]), 2)
+	}
+	return math.Sqrt(d)
+}
+
 // MatMSE compares two float matrixes and return the Mean Squared Error
 func MatMSE(e, a [][]float64) (mse float64) {
 	for i := range e {
