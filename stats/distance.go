@@ -44,8 +44,8 @@ func HellDist(xs, ys []float64) (e float64) {
 	return e / math.Sqrt2
 }
 
-// LNorm calculates the l-norm of two arrays
-func LNorm(xs, ys []float64, l float64) float64 {
+// LNormDiff calculates the l-norm of the difference of two arrays
+func LNormDiff(xs, ys []float64, l float64) float64 {
 	return gfloats.Distance(xs, ys, l)
 }
 
