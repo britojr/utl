@@ -2,8 +2,11 @@ package ioutl
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
+
+	yaml "gopkg.in/yaml.v2"
 
 	"github.com/britojr/kbn/utl/errchk"
 )
@@ -30,4 +33,13 @@ func Sprintc(a ...interface{}) string {
 	s = strings.Replace(s, "[", "", -1)
 	s = strings.Replace(s, "]", "", -1)
 	return s
+}
+
+// ReadYaml reads a yaml file and store it in a string map
+func ReadYaml(name string) map[string]string {
+	m := make(map[string]string)
+	data, err := ioutil.ReadFile(name)
+	errchk.Check(err, "")
+	errchk.Check(yaml.Unmarshal([]byte(data), &m), "")
+	return m
 }
