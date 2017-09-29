@@ -3,7 +3,7 @@ package stats
 import (
 	"math"
 
-	gfloats "github.com/gonum/floats"
+	gfloats "gonum.org/v1/gonum/floats"
 )
 
 // MSE calculates mean squared error
