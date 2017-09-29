@@ -43,3 +43,12 @@ func ReadYaml(name string) map[string]string {
 	errchk.Check(yaml.Unmarshal([]byte(data), &m), "")
 	return m
 }
+
+// TempFile creates a temp file with given content
+func TempFile(fprefix string, content string) string {
+	f, err := ioutil.TempFile("", fprefix)
+	errchk.Check(err, "")
+	defer f.Close()
+	fmt.Fprintf(f, "%s", content)
+	return f.Name()
+}
