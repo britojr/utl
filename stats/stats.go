@@ -9,7 +9,7 @@ import (
 	"gonum.org/v1/gonum/stat"
 	"gonum.org/v1/gonum/stat/distuv"
 
-	"github.com/britojr/kbn/utl/floats"
+	"github.com/britojr/utl/floats"
 )
 
 // Mean calculates the Mean of a float64 slice

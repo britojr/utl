@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/britojr/kbn/utl/errchk"
+	"github.com/britojr/utl/errchk"
 )
 
 // Atoi converts string to int

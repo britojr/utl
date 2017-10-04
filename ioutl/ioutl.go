@@ -6,9 +6,9 @@ import (
 	"os"
 	"strings"
 
-	yaml "gopkg.in/yaml.v2"
+	"github.com/britojr/utl/errchk"
 
-	"github.com/britojr/kbn/utl/errchk"
+	yaml "gopkg.in/yaml.v2"
 )
 
 // OpenFile returns a pointer to an open file
