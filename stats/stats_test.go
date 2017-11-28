@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/britojr/utl/floats"
+	gfloats "gonum.org/v1/gonum/floats"
 )
 
 func TestMean(t *testing.T) {
@@ -111,7 +112,7 @@ func TestDirichlet(t *testing.T) {
 	for _, tt := range cases {
 		values := make([]float64, tt.l)
 		Dirichlet1(tt.alpha, values)
-		if !floats.AlmostEqual(1, floats.Sum(values)) {
+		if !floats.AlmostEqual(1, gfloats.Sum(values)) {
 			t.Errorf("not normalized %v", values)
 		}
 	}
@@ -169,8 +170,8 @@ func TestSetRandom(t *testing.T) {
 	for _, tt := range cases {
 		Random(tt.xs)
 		got := tt.xs
-		if !floats.AlmostEqual(1, floats.Sum(got)) {
-			t.Errorf("not normalized, sum %v", floats.Sum(got))
+		if !floats.AlmostEqual(1, gfloats.Sum(got)) {
+			t.Errorf("not normalized, sum %v", gfloats.Sum(got))
 		}
 	}
 	// test different outcomes
