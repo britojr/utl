@@ -6,10 +6,10 @@ import (
 	"sort"
 	"time"
 
+	randx "golang.org/x/exp/rand"
+	"gonum.org/v1/gonum/floats"
 	"gonum.org/v1/gonum/stat"
 	"gonum.org/v1/gonum/stat/distuv"
-
-	"github.com/britojr/utl/floats"
 )
 
 // Mean calculates the Mean of a float64 slice
@@ -59,7 +59,7 @@ func Dirichlet1(alpha float64, values []float64) {
 	if alpha == 0 {
 		panic("alpha != 0 needed for dirichlet dirtribution")
 	}
-	rndsrc := rand.New(rand.NewSource(time.Now().UTC().UnixNano()))
+	rndsrc := randx.New(randx.NewSource(uint64(time.Now().UTC().UnixNano())))
 	for i := range values {
 		values[i] = distuv.Gamma{Alpha: alpha, Beta: 1, Source: rndsrc}.Rand()
 	}
