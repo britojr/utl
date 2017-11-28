@@ -22,6 +22,13 @@ func Atof(s string) float64 {
 	return i
 }
 
+// Atob converts string to bool
+func Atob(s string) bool {
+	b, err := strconv.ParseBool(s)
+	errchk.Check(err, fmt.Sprintf("Can't convert %v to bool", s))
+	return b
+}
+
 // Satoi creates an int slice from a string slice
 func Satoi(ss []string) []int {
 	arr := make([]int, len(ss))

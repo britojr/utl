@@ -40,6 +40,24 @@ func TestAtof(t *testing.T) {
 	}
 }
 
+func TestAtob(t *testing.T) {
+	cases := []struct {
+		s    string
+		want bool
+	}{
+		{"true", true},
+		{"True", true},
+		{"false", false},
+		{"False", false},
+	}
+	for _, tt := range cases {
+		got := Atob(tt.s)
+		if tt.want != got {
+			t.Errorf("wrong conversion %v != %v", tt.want, got)
+		}
+	}
+}
+
 func TestSatoi(t *testing.T) {
 	cases := []struct {
 		s    []string
