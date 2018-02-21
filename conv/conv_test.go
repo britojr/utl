@@ -2,6 +2,7 @@ package conv
 
 import (
 	"reflect"
+	"strconv"
 	"testing"
 )
 
@@ -84,6 +85,27 @@ func TestSatof(t *testing.T) {
 	}
 	for _, tt := range cases {
 		got := Satof(tt.s)
+		if !reflect.DeepEqual(tt.want, got) {
+			t.Errorf("wrong conversion %v != %v", tt.want, got)
+		}
+	}
+}
+
+func TestSftoa(t *testing.T) {
+	cases := []struct {
+		fs   []float64
+		want []string
+	}{
+		{[]float64{1}, []string{strconv.FormatFloat(1, 'E', -1, 64)}},
+		{[]float64{-1.7, 3.17, -0.00019, 3}, []string{
+			strconv.FormatFloat(-1.7, 'E', -1, 64),
+			strconv.FormatFloat(3.17, 'E', -1, 64),
+			strconv.FormatFloat(-0.00019, 'E', -1, 64),
+			strconv.FormatFloat(3, 'E', -1, 64),
+		}},
+	}
+	for _, tt := range cases {
+		got := Sftoa(tt.fs)
 		if !reflect.DeepEqual(tt.want, got) {
 			t.Errorf("wrong conversion %v != %v", tt.want, got)
 		}

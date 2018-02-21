@@ -47,6 +47,15 @@ func Satof(ss []string) []float64 {
 	return arr
 }
 
+// Sftoa creates an string slice from a float64 slice
+func Sftoa(fs []float64) []string {
+	arr := make([]string, len(fs))
+	for i, v := range fs {
+		arr[i] = strconv.FormatFloat(v, 'E', -1, 64)
+	}
+	return arr
+}
+
 // Sitou creates an uint64 array from an int array
 func Sitou(is []int) []uint64 {
 	arr := make([]uint64, len(is))
