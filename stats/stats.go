@@ -61,7 +61,7 @@ func Dirichlet1(alpha float64, values []float64) {
 	}
 	rndsrc := randx.New(randx.NewSource(uint64(time.Now().UTC().UnixNano())))
 	for i := range values {
-		values[i] = distuv.Gamma{Alpha: alpha, Beta: 1, Source: rndsrc}.Rand()
+		values[i] = distuv.Gamma{Alpha: alpha, Beta: 1, Src: rndsrc}.Rand()
 	}
 	Normalize(values)
 }
