@@ -40,7 +40,7 @@ func ReadYaml(name string) map[string]string {
 	m := make(map[string]string)
 	data, err := ioutil.ReadFile(name)
 	errchk.Check(err, "")
-	errchk.Check(yaml.Unmarshal([]byte(data), &m), "")
+	errchk.Check(yaml.Unmarshal(data, &m), "")
 	return m
 }
 
