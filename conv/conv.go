@@ -73,3 +73,12 @@ func Sitof(is []int) []float64 {
 	}
 	return arr
 }
+
+// Sitoa creates an string slice from a int slice
+func Sitoa(is []int) []string {
+	arr := make([]string, len(is))
+	for i, v := range is {
+		arr[i] = strconv.Itoa(v)
+	}
+	return arr
+}
