@@ -14,6 +14,14 @@ func MSE(xs, ys []float64) (mse float64) {
 	return mse / float64(len(xs))
 }
 
+// MAE calculates mean absolute error
+func MAE(xs, ys []float64) (mae float64) {
+	for i, v := range xs {
+		mae += math.Abs(v - ys[i])
+	}
+	return mae / float64(len(xs))
+}
+
 // CrossEntropy calculates cross entropy of two distributions
 func CrossEntropy(xs, ys []float64) (c float64) {
 	for i, v := range xs {
